@@ -27,14 +27,19 @@ jobs:
       - name: 🔑 Setup SSH Connection
         run: |
           mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+
+          # Store the SSH private key correctly
           echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
+          # Add SSH host to known hosts
+          ssh-keyscan -H "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
 
       - name: 🔍 Test SSH Connection
         run: ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "echo 'SSH connection successful'"
 
       - name: 📤 Deploy to Hosting
         run: |
-          rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" dist/ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/home/${{ secrets.SSH_USERNAME }}/public_html/
+          rsync -az --progress --delete -e "ssh -o StrictHostKeyChecking=no" dist/ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/home/${{ secrets.SSH_USERNAME }}/public_html/
