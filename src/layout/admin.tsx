@@ -1,5 +1,5 @@
 import { Stack } from "@mui/system";
-import { Navigate, Outlet } from "react-router";
+import { Outlet } from "react-router";
 import AdminSideBar from "./admin-sidebar";
 // import { useSelector } from "react-redux";
 

@@ -1,27 +1,15 @@
 export const pdfData = [
     {
       id: "1",
-      title: "Company Profile",
-      url: "../../data/HINO-110.pdf",
+      title: "Hino 110",
+      url: "https://drive.google.com/file/d/1W_JnjoMS5nu5udEvu2JmZtDIHC-aBBnA/view?usp=sharing",
+      image: `https://imgcdn.oto.com/large/gallery/exterior/120/2096/hino-dutro-cargo-110-sd-front-angle-low-view-543983.jpg`,
+    },
+    {
+      id: "1",
+      title: "Hino FM 500",
+      url: "https://drive.google.com/file/d/1hDvg3jIztvgltcNGP0bkP0OV9_Wqx_hd/view?usp=sharing",
       image: `https://picsum.photos/300/200?random=1`,
-    },
-    {
-      id: "2",
-      title: "Product Catalog",
-      url: "https://www.africau.edu/images/default/sample.pdf",
-      image: `https://picsum.photos/300/200?random=2`,
-    },
-    {
-      id: "3",
-      title: "User Guide",
-      url: "https://calibre-ebook.com/downloads/demos/demo.pdf",
-      image: `https://picsum.photos/300/200?random=3`,
-    },
-    {
-      id: "4",
-      title: "Terms & Conditions",
-      url: "https://www.orimi.com/pdf-test.pdf",
-      image: `https://picsum.photos/300/200?random=4`,
-    },
+    }
   ];
   
